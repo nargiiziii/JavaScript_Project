@@ -1,8 +1,8 @@
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-  
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 
 header {
   height: 160px;
@@ -57,6 +57,28 @@ header .second-head-area nav {
   gap: 30px;
   padding: 19px;
   padding: 20px 50px;
+}
+
+header .first-head-area .nav-right-area .area .username {
+  width: 60px;
+  padding: 5px;
+  background-color: #d7c4d7;
+  border: none;
+}
+
+header .first-head-area .nav-right-area .area .register,
+.logout {
+  padding: 10px;
+}
+
+header .first-head-area .nav-right-area .area a {
+  color: #000;
+  display: flex;
+  gap: 4px;
+}
+
+a {
+  text-decoration: none;
 }
 
 @media screen and (min-width: 625px) and (max-width: 868px) {
@@ -146,7 +168,7 @@ main {
   padding: 10px 40px;
 }
 
-.left-side .left-pos-text { 
+.left-side .left-pos-text {
   position: absolute;
   top: 10px;
   left: 10px;
@@ -351,64 +373,117 @@ main {
 }
 
 @media screen and (min-width: 625px) and (max-width: 868px) {
-
-    main {
-       display: flex;
-       flex-direction: column;
-       justify-content: center;
-       align-items: center;
-        padding: 30px 0;
-      }
-
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+  }
 }
 @media screen and (max-width: 625px) {
-    main {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 30px 10px; 
-      width: 100%; 
-      gap: 5px;
-    }
-  
-    .left-side .small-imgs img {
-      width: 60px;
-      height: 60px;
-      margin: 1px;
-    }
-  
-    .left-side .big-img img {
-      width: 140px;
-      height: 200px;
-    }
-  
-    .right-side {
-      gap: 10px;
-      width: 100%;
-    }
-  
-    .right-side .title {
-      font-size: 18px;
-    }
-  
-    .right-side .rating {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 14px;
-    }
-  
-    .right-side .prices {
-      width: 100%;
-    }
-  
-    .right-side .price {
-      width: 100%;
-      margin: 0 5px;
-    }
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 10px;
+    width: 100%;
+    gap: 5px;
+  }
+
+  .left-side .small-imgs img {
+    width: 60px;
+    height: 60px;
+    margin: 1px;
+  }
+
+  .left-side .big-img img {
+    width: 140px;
+    height: 200px;
+  }
+
+  .right-side {
+    gap: 10px;
+    width: 100%;
+  }
+
+  .right-side .title {
+    font-size: 18px;
+  }
+
+  .right-side .rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+  }
+
+  .right-side .prices {
+    width: 100%;
+  }
+
+  .right-side .price {
+    width: 100%;
+    margin: 0 5px;
+  }
+}
+
+ .description-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+ .description-area .prq-head {
+  display: flex;
+  gap: 30px;
+  border-bottom: 1px solid gray;
+  font-size: 22px;
+  padding: 20px 0;
+  width: 1000px;
+}
+
+ .description-area .desc-text {
+  font-size: 18px;
+  color: #333;
+  padding: 20px 0;
+  width: 1000px;
+}
+
+@media screen and (min-width: 868px) and (max-width: 1188px) {
+   .description-area .prq-head {
+    width: 800px;
   }
   
+   .description-area .desc-text {
+    width: 800px;
+  }
+}
+
+
+@media screen and (min-width: 625px) and (max-width: 868px) {
+  .description-area .prq-head {
+    width: 600px;
+  }
+  
+   .description-area .desc-text {
+    font-size: 16px;
+    width: 600px;
+  }
+}
+
+@media screen and (max-width: 625px) {
+  .description-area .prq-head {
+    width: 300px;
+  }
+  
+   .description-area .desc-text {
+    font-size: 16px;
+    width: 300px;
+  }
+}
 
 /* FOOTER */
 

@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   let userIndex = users.findIndex((user) => user.id == loginedUser?.id);
 
   let userBtn = document.querySelector(".username");
-    userBtn.textContent = loginedUser?.username;
+  userBtn.textContent = loginedUser?.username;
 
   let register = document.querySelector(".register");
 
@@ -23,8 +23,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       register.style.display = "none";
       logout.style.display = "block";
     } else {
-        register.style.display = "block";
-        logout.style.display = "none";
+      register.style.display = "block";
+      logout.style.display = "none";
     }
   }
 
@@ -83,7 +83,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   function createUserCard() {
     const cards = document.querySelector(".cards");
-    cards.innerHTML = ""; 
+
+    if (!cards) return; // Если элемента .cards нет — просто выходим
+  
+    cards.innerHTML = "";
 
     products.forEach((product) => {
       const card = document.createElement("div");
@@ -92,7 +95,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       card.addEventListener("click", () => {
         window.location.href = `product_detail.html?id=${product.id}`;
-      });
+      });      
 
       const newBadge = document.createElement("div");
       newBadge.className = "left-pos-text";
@@ -157,11 +160,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       addBtn.textContent = "Add to cart";
       addBtn.addEventListener("click", (e) => {
         e.stopPropagation();
-        if(!loginedUser){
-            toast("login first before adding the basket!!");
-          }else {
-            addBasket(product.id);
-          }
+        if (!loginedUser) {
+          toast("login first before adding the basket!!");
+        } else {
+          addBasket(product.id);
+        }
       });
 
       cardContent.append(productRate, cardTitle, cardFooter);
@@ -171,21 +174,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-
-
-  
-  function toggleUserWishlist(productId, heartIcon){
-
-    if(!loginedUser){
+  function toggleUserWishlist(productId, heartIcon) {
+    if (!loginedUser) {
       toast("you should login first before entering the wishlist!!");
       setTimeout(() => {
         window.location.href = "login.html";
       }, 3000);
     }
 
-    let currentProduct = loginedUser.wishlist.some((item) => item.id === productId);
+    let currentProduct = loginedUser.wishlist.some(
+      (item) => item.id === productId
+    );
 
-    if(currentProduct) {
+    if (currentProduct) {
       let currentProductIndex = loginedUser.wishlist.findIndex(
         (product) => product.id == productId
       );
@@ -197,11 +198,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       heartIcon.classList.remove("fa-solid");
       heartIcon.classList.add("fa-regular");
-      
-      toast("product removed from wishlist");
 
+      toast("product removed from wishlist");
     } else {
-      let addProduct = products.find((product)=> product.id == productId);
+      let addProduct = products.find((product) => product.id == productId);
 
       loginedUser.wishlist.push(addProduct); //wishlistde product yoxdusa onu elave edirem wishlist arrayin icine
 
@@ -211,65 +211,57 @@ document.addEventListener("DOMContentLoaded", async () => {
       heartIcon.classList.add("fa-solid");
       heartIcon.classList.remove("fa-regular");
 
-      toast("product added to wishlist")
-
+      toast("product added to wishlist");
     }
-
   }
 
-  
   function addBasket(productId) {
-
-    if(!loginedUser){
+    if (!loginedUser) {
       toast("you should login first before entering the basket!!");
       setTimeout(() => {
         window.location.href = "login.html";
       }, 3000);
     }
-    
+
     let existingProd = loginedUser.basket.find((prod) => prod.id == productId);
-    
+
     if (!existingProd) {
-      let product = products.find((productItem)=> productItem.id == productId);
-      loginedUser.basket.push({...product, count: 1});
-    }else {
+      let product = products.find((productItem) => productItem.id == productId);
+      loginedUser.basket.push({ ...product, count: 1 });
+    } else {
       existingProd.count++;
     }
 
-    users[userIndex].basket == loginedUser.basket;
+    users[userIndex].basket = loginedUser.basket;
     localStorage.setItem("users", JSON.stringify(users));
     toast("product added to basket!!");
     basketCount();
   }
 
-//   function basketCount(){
-//     let result = loginedUser.basket.reduce(
-//       (acc, product) => acc + product.count,
-//     0);
+    function basketCount(){
+      let result = loginedUser.basket.reduce(
+        (acc, product) => acc + product.count,
+      0);
 
-//     let countItem = document.querySelector(".basketIcon sup");
-//     countItem.textContent = result
-//   }
-//   basketCount();
-
+      let countItem = document.querySelector(".basketIcon sup");
+      countItem.textContent = result
+    }
+    basketCount();
 
   createUserCard();
   updateUserStatus();
 });
 
-
-
 let toast = (text) => {
-    Toastify({
-        text: `${text}`,
-        duration: 3000,
-        position: "left", 
-        stopOnFocus: true, 
-        style: {
-            background: "linear-gradient(to right, rgb(5, 125, 162),rgb(110, 185, 208))",
-        },
-        onClick: function() {} 
-    }).showToast();
-  }
-  
-  
+  Toastify({
+    text: `${text}`,
+    duration: 3000,
+    position: "left",
+    stopOnFocus: true,
+    style: {
+      background:
+        "linear-gradient(to right, rgb(5, 125, 162),rgb(110, 185, 208))",
+    },
+    onClick: function () {},
+  }).showToast();
+};

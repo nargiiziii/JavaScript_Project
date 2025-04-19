@@ -4,11 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let users = JSON.parse(localStorage.getItem("users")) || [];
 
-    let name = document.querySelector("#name");
-    let username = document.querySelector("#username");
     let email = document.querySelector("#email");
     let password = document.querySelector("#password");
-    let confirmpassword = document.querySelector("#confirmpassword");
 
 
     // password ui terefden yoxlanis hissesi
@@ -45,28 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function register(e) {
         e.preventDefault();
-
-
-        // username yoxlanisi
-        let usernameValue = username.value.trim();  
-
-        if (usernameValue.length < 3) {
-            toast("Username must have more than 3 characters");
-            return;  
-        } else if (usernameValue.length > 20) {
-            toast("Username must have less than 20 characters");
-            return;  
-        }
-        //ozum herf ve simvollari verirem ki icinnen yoxlanis elesin her simvolu
-        let permittedSymb = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-"; 
-        
-        if (usernameValue.split("").every(char => permittedSymb.includes(char))) {
-            console.log("username is correct");
-        } else {
-            toast("username can contain only letters,numbers, _ or -");
-            return;  
-        }
-
 
         // email yoxlanisi
 
@@ -111,32 +86,19 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         
     
-
-        // password ve testiq passwordu eyni olmamasi yoxlanisi
-
-        if (passwordValue !== confirmpassword.value.trim()) {
-            toast("password and confirm password should be same!!");
-            return;
-        }
-
-
-        
-
         let uniqueUser = users.some(
-            (user) => user.username == usernameValue || user.email == emailValue
+            (user) => user.email == emailValue
         );
 
         let id = uuidv4();
 
         if (!uniqueUser) {
             let newUser = {
-              name: name.value,
-              username: usernameValue,
               email: emailValue,
               password: passwordValue,
               isLogined: false,
-              failedAttempts: 0, //password ucun attemptlerin sayi(cox olsa bloklanacaq)
-              isLocked: false,  //bloklanmis olub olmamasini burda saxlayacam
+              failedAttempts: 0, 
+              isLocked: false,  
               id,
               wishlist: [],
               basket: [],

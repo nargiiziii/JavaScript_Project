@@ -10,13 +10,20 @@
     margin: 30px auto;
     padding: 20px;
     border-radius: 10px;
-    background-image: linear-gradient(rgb(110, 185, 208), rgb(5, 125, 162));
+    background-color: rgb(241, 244, 247);
 }
 
 h1 {
     font-size: 32px;
-    color: aliceblue;
+    color: black;
     padding-bottom: 10px;
+    text-align: center;
+}
+
+.text {
+    font-size: 16px;
+    text-align: center;
+    padding: 15px;
 }
 
 form {
@@ -24,25 +31,35 @@ form {
     flex-direction: column;
     gap: 20px;
     font-size: 18px;
-    color: aliceblue;
+    color: rgb(0, 0, 0);
 }
 
 .name, .username, .email, .password, .confirmpassword {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    color: black;
+}
+
+.passw-area {
+    display: flex;
+    justify-content: space-between;
+}
+
+.passw-area p{
+    font-size: 15px;
 }
 
 input {
     padding: 10px;
     outline: none;
-    border: 1px solid white;
+    border: 1px solid gray;
     border-radius: 7px;
 } 
 
 a {
     text-decoration: none;
-    color: rgb(120, 205, 248);
+    color: black;
     font-weight: bold;
 }
 
@@ -50,7 +67,7 @@ button {
     padding: 10px;
     width: 100%;
     color: aliceblue;
-    background-color: rgb(82, 155, 191);
+    background-color: #f75145;
     cursor: pointer;
     font-size: 20px;
     border: none;
@@ -58,6 +75,6 @@ button {
 }
 
 button:hover {
-    color: rgb(82, 155, 191);
+    color: #f75145;
     background-color: aliceblue;
 }

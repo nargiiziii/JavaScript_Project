@@ -189,6 +189,17 @@ main {
   cursor: pointer;
 }
 
+.wishlist-icon.fa-solid {
+  color: red;
+  transition: color 0.3s ease;
+}
+
+.wishlist-icon.fa-regular {
+  color: black;
+  transition: color 0.3s ease;
+}
+
+
 .right-side {
   padding: 20px;
   display: flex;

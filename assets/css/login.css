@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.form-area {
+    width: 400px;
+    height: 100%;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-image: linear-gradient(rgb(110, 185, 208), rgb(5, 125, 162));
+}
+
+h1 {
+    font-size: 32px;
+    color: aliceblue;
+    padding-bottom: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 18px;
+    color: aliceblue;
+}
+
+.name, .username, .email, .password, .confirmpassword {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input {
+    padding: 10px;
+    outline: none;
+    border: 1px solid white;
+    border-radius: 7px;
+} 
+
+a {
+    text-decoration: none;
+    color: rgb(120, 205, 248);
+    font-weight: bold;
+}
+
+button {
+    padding: 10px;
+    width: 100%;
+    color: aliceblue;
+    background-color: rgb(82, 155, 191);
+    cursor: pointer;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+}
+
+button:hover {
+    color: rgb(82, 155, 191);
+    background-color: aliceblue;
+}

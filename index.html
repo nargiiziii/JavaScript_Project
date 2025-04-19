@@ -7,6 +7,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- toastify -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+     <!-- toastify -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -24,16 +28,23 @@
 
                 <div class="nav-right-area">
                     <div class="area">
-                        <div class="icon"><i class="fa-solid fa-user fa-lg"></i></div>
-                        <p class="register">Sign up</p>
+                        <button class="username">Username</button>
+
+                        <a class="dropdown-item register" href="register.html"><i class="fa-solid fa-user fa-lg"></i>  Sign Up</a>
+
+                        <a class="dropdown-item logout" href="#">Logout</a>
+
+                        <!-- <li>
+                                <a class="dropdown-item settings d-none" href="acc_settings.html">Accaunt settings</a>
+                            </li> -->
                     </div>
                     <div class="area">
-                        <div class="icon"><i class="fa-solid fa-heart fa-lg"></i></div>
-                        <p class="wishlist">Wishlist</p>
+                        <div class="icon wishlistIcon"><i class="fa-solid fa-heart fa-lg"></i></div>
+                        <p class="wishlist wishlistIcon">Wishlist</p>
                     </div>
                     <div class="area">
-                        <div class="icon"><i class="fa-solid fa-cart-shopping fa-lg"></i></div>
-                        <p class="basket">Basket</p>
+                        <div class="icon basketIcon"><i class="fa-solid fa-cart-shopping fa-lg"></i></div>
+                        <p class="basket basketIcon">Basket</p>
                     </div>
                 </div>
 
@@ -76,22 +87,22 @@
 
         <div class="bag-categories">
 
-            <div class="row">
+            <div class="roww">
                 <p>Shoulder bags</p>
                 <img class="first" src="./assets/images/index-categ-img1.png" alt="">
             </div>
 
-            <div class="row">
+            <div class="roww">
                 <p>Hand bag</p>
                 <img class="second" src="./assets/images/index-categ-img2.png" alt="">
             </div>
 
-            <div class="row">
+            <div class="roww">
                 <p>Backpack</p>
                 <img class="third" src="./assets/images/index-categ-img3.png" alt="">
             </div>
 
-            <div class="row">
+            <div class="roww">
                 <p>Evenings bags</p>
                 <img class="fourth" src="./assets/images/index-categ-img4.png" alt="">
             </div>
@@ -119,7 +130,7 @@
 
             <div class="cards">
 
-                <div class="card">
+                <!-- <div class="card">
                     <div class="left-pos-text">New</div>
                     <div class="wishlist-icon"><i class="fa-solid fa-heart fa-lg"></i></div>
                     <div class="card-image">
@@ -246,7 +257,7 @@
                         <div class="card-price-from">From $340.00</div>
                     </div>
                     <button class="btn">Add to cart</button>
-                </div>
+                </div> -->
 
 
 
@@ -262,73 +273,74 @@
 
         <!-- Верхняя часть футера с логотипом и поиском -->
         <div class="footer-top">
-          <h2 class="logo">Snobella</h2>
-          <div class="search-box">
-            <input type="text" placeholder="Search all product">
-            <button>🔍</button>
-          </div>
+            <h2 class="logo">Snobella</h2>
+            <div class="search-box">
+                <input type="text" placeholder="Search all product">
+                <button>🔍</button>
+            </div>
         </div>
-      
+
         <div class="footer-container">
-          <div class="footer-left">
-            <p>The wise man therefore always holds selection<br>
-            The wise man therefore always rejects pleasures to secure other greater</p>
-      
-            <div class="footer-contact">
-              <p>Snobella@gmail.com</p>
-              <p>+748 383 23 14</p>
+            <div class="footer-left">
+                <p>The wise man therefore always holds selection<br>
+                    The wise man therefore always rejects pleasures to secure other greater</p>
+
+                <div class="footer-contact">
+                    <p>Snobella@gmail.com</p>
+                    <p>+748 383 23 14</p>
+                </div>
+                <button class="footer-btn">✉️ Send message</button>
             </div>
-            <button class="footer-btn">✉️ Send message</button>
-          </div>
-      
-          <div class="footer-links">
-            <div>
-              <h4>Shop</h4>
-              <ul>
-                <li>Shoulder Bag</li>
-                <li>Backpack</li>
-                <li>Tote Bag</li>
-                <li>Hand Bag</li>
-                <li>Evening bags</li>
-                <li>Purse</li>
-              </ul>
+
+            <div class="footer-links">
+                <div>
+                    <h4>Shop</h4>
+                    <ul>
+                        <li>Shoulder Bag</li>
+                        <li>Backpack</li>
+                        <li>Tote Bag</li>
+                        <li>Hand Bag</li>
+                        <li>Evening bags</li>
+                        <li>Purse</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <ul>
+                        <li>About us</li>
+                        <li>Contact</li>
+                        <li>Terms of Use</li>
+                        <li>Customer service</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Help</h4>
+                    <ul>
+                        <li>FAQ</li>
+                        <li>Delivery</li>
+                        <li>Cancellation of the order</li>
+                        <li>Don’t go back</li>
+                    </ul>
+                </div>
             </div>
-            <div>
-              <h4>Company</h4>
-              <ul>
-                <li>About us</li>
-                <li>Contact</li>
-                <li>Terms of Use</li>
-                <li>Customer service</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Help</h4>
-              <ul>
-                <li>FAQ</li>
-                <li>Delivery</li>
-                <li>Cancellation of the order</li>
-                <li>Don’t go back</li>
-              </ul>
-            </div>
-          </div>
         </div>
-      
+
         <div class="footer-bottom">
-          <p>© 2020. All rights reserved.</p>
-          <div class="footer-icons">
-            <span>📷</span>
-            <span>📘</span>
-            <span>💬</span>
-          </div>
+            <p>© 2020. All rights reserved.</p>
+            <div class="footer-icons">
+                <span>📷</span>
+                <span>📘</span>
+                <span>💬</span>
+            </div>
         </div>
-      </footer>
-      
-      
+    </footer>
 
 
 
-
+    <!-- toastify -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     <script src="/assets/js/script.js"></script>
 </body>
 

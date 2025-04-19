@@ -7,6 +7,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="/assets/css/product_detail.css">
+    <!-- toastify -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -24,16 +26,24 @@
 
                 <div class="nav-right-area">
                     <div class="area">
-                        <div class="icon"><i class="fa-solid fa-user fa-lg"></i></div>
-                        <p class="register">Sign up</p>
+                        <button class="username">Username</button>
+
+                        <a class="dropdown-item register" href="register.html"><i class="fa-solid fa-user fa-lg"></i>  Sign Up</a>
+
+                        <a class="dropdown-item logout" href="#">Logout</a>
+
                     </div>
                     <div class="area">
-                        <div class="icon"><i class="fa-solid fa-heart fa-lg"></i></div>
-                        <p class="wishlist">Wishlist</p>
+                        <a href="./wishlist.html">
+                            <div class="icon wishlistIcon"><i class="fa-solid fa-heart fa-lg"></i></div>
+                            <p class="wishlist wishlistIcon">Wishlist</p>
+                        </a>
                     </div>
                     <div class="area">
-                        <div class="icon"><i class="fa-solid fa-cart-shopping fa-lg"></i></div>
-                        <p class="basket">Basket</p>
+                        <a href="./basket.html">
+                            <div class="icon basketIcon"><i class="fa-solid fa-cart-shopping fa-lg"></i></div>
+                            <p class="basket basketIcon">Basket</p>
+                        </a>
                     </div>
                 </div>
 
@@ -185,7 +195,8 @@
 
 
 
-
+<!-- toastify -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="/assets/js/script.js"></script>
 </body>
 

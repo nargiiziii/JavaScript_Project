@@ -68,6 +68,8 @@ header .first-head-area .nav-right-area .area .register, .logout{
 
  header .first-head-area .nav-right-area .area a{
  color: #000;
+ display: flex;
+ gap: 4px
  }
 
  a {

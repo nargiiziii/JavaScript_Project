@@ -14,8 +14,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   let logout = document.querySelector(".logout");
 
-  // let settings = document.querySelector(".settings");
-
   let wishlistLink = document.querySelector(".wishlistIcon");
 
   let basketLink = document.querySelector(".basketIcon");
@@ -159,7 +157,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       addBtn.textContent = "Add to cart";
       addBtn.addEventListener("click", (e) => {
         e.stopPropagation();
-        addBasket(product.id);
+        if(!loginedUser){
+            toast("login first before adding the basket!!");
+          }else {
+            addBasket(product.id);
+          }
       });
 
       cardContent.append(productRate, cardTitle, cardFooter);

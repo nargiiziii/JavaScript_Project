@@ -4,6 +4,7 @@ body {
   overflow-x: hidden;
 }
 
+
 header {
   height: 160px;
   padding: 10px;
@@ -58,6 +59,27 @@ header .second-head-area nav {
   padding: 19px;
   padding: 20px 50px;
 }
+
+header .first-head-area .nav-right-area .area .username{
+  width: 60px;
+ padding: 5px;
+ background-color: #d7c4d7;
+ border: none;
+}
+
+header .first-head-area .nav-right-area .area .register, .logout{
+  padding: 10px;
+ }
+
+ header .first-head-area .nav-right-area .area a{
+ color: #000;
+ display: flex;
+ gap: 4px
+ }
+
+ a {
+  text-decoration: none;
+ }
 
 @media screen and (min-width: 625px) and (max-width: 868px) {
   header {
@@ -176,8 +198,30 @@ h2 {
   margin: 0;
 }
 
-.left-side .card .card-info .left-info select {
+.count-area {
   width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid #bda9a9;
+  border-radius: 5px;
+  padding: 0 5px;
+}
+
+.count {
+  font-size: 20px;
+  margin: 0;
+}
+.minus-btn,
+.plus-btn {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 25px;
+}
+.minus-btn:disabled {
+  cursor: not-allowed;
 }
 
 .left-side .card .card-info .right-info {
@@ -205,6 +249,7 @@ h2 {
   gap: 10px;
   font-size: 14px;
 }
+
 
 .left-side .card .card-info .right-info .wish-rem .wishlist,
 .left-side .card .card-info .right-info .wish-rem .remove {
@@ -300,13 +345,12 @@ h2 {
 }
 
 .right-side .cart,
-.right-side .payment {
+.right-side .payment, .clear-cart {
   padding: 10px 16px;
   border: none;
   font-size: 14px;
   cursor: pointer;
   border-radius: 6px;
-  transition: background-color 0.3s ease;
 }
 
 .right-side .cart {
@@ -314,7 +358,7 @@ h2 {
   color: #fff;
 }
 
-.right-side .payment {
+.right-side .payment,.clear-cart {
   border: 1px solid gray;
   color: #000;
 }

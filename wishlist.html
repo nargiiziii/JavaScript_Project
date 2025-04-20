@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/assets/css/wishlist.css">
     <!-- toastify -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-     <!-- toastify -->
+    <!-- toastify -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -34,20 +34,18 @@
 
                         <a class="dropdown-item logout" href="#">Logout</a>
 
-                        <!-- <li>
-                                <a class="dropdown-item settings d-none" href="acc_settings.html">Accaunt settings</a>
-                            </li> -->
+
                     </div>
                     <div class="area">
-                        <a href="./wishlist.html">
-                            <div class="icon wishlistIcon"><i class="fa-solid fa-heart fa-lg"></i></div>
-                            <p class="wishlist wishlistIcon">Wishlist</p>
+                        <a class="wishlistIcon" href="./wishlist.html">
+                            <div class="icon"><i class="fa-solid fa-heart fa-lg"></i></div>
+                            <p class="wishlist-icon">Wishlist</p>
                         </a>
                     </div>
                     <div class="area">
-                        <a href="./basket.html">
-                            <div class="icon basketIcon"><i class="fa-solid fa-cart-shopping fa-lg"></i></div>
-                            <p class="basket basketIcon">Basket</p>
+                        <a href="basket.html" class="basketIcon">
+                            <i class="fa-solid fa-cart-shopping fa-l"></i>
+                            <sup>0</sup>
                         </a>
                     </div>
                 </div>
@@ -71,30 +69,58 @@
         </div>
     </header>
 
-        <h1>Your Wishlist</h1>
+
+
     <main>
+        <div class="back">
+            <a class="link" href="index.html">home ></a>
+            <a class="link" href="wishlist.html"> favorites</a>
+        </div>
+
         <section class="wishlist-container">
-            <div class="container">
-                <div class="row">
-                    <div class="wishlist">
-                        <!-- <div class="wishlist-item">
-                <div class="image">
-                  <img
-                    src="https://via.placeholder.com/150"
-                    alt="Product Image"
-                  />
-                </div>
-                <h3 class="title">Product Name</h3>
-                <p class="category">Product category</p>
-                <p class="price">$50.00</p>
-                <button class="btn btn-danger">Remove</button>
-              </div> -->
-                    </div>
-                    <a class="link" href="index.html">back</a>
-                </div>
+
+            <div class="right-side">
+                <h2>Favorites</h2>
+                <ul>
+                    <li>
+                        <img src="./assets/images/fav-ava.png" alt="">
+                        <div class="user-info">
+                            <p><strong>John Smith</strong></p>
+                            <p>Client code: BYL13000</p>
+                        </div>
+                    </li>
+                    <li>My Orders</li>
+                    <li>Favorites</li>
+                    <li>My comments</li>
+                    <li>Addresses</li>
+                    <li>Adjustments</li>
+                </ul>
             </div>
+
+            <div class="wishlist">
+
+                <!-- <div class="wishlist-item">
+                    <div class="image">
+                        <div class="btn-remove">+</div>
+                        <p class="red-prq">30% off</p>
+                        <img src="" alt="Product Image" />
+                    </div>
+                    <p class="stars">*</p>
+                    <h3 class="title"></h3>
+                    <div class="price-area">
+                        <p class="price"></p>
+                        <p class="price-from">From $340.00</p>
+                    </div>
+                    <button class="btn-add">Add to cart</button>
+                </div> -->
+
+
+            </div>
+
         </section>
     </main>
+     <!-- axios -->
+     <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     <!-- toastify -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="./assets/js/wishlist.js"></script>

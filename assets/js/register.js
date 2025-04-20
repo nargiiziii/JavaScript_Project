@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
             emailValue.includes(".") &&         
             emailValue.endsWith(".com") &&     
             emailValue.indexOf("@") > 0 &&      
-            emailValue.indexOf(".") > emailValue.indexOf("@") + 1 //noqteden sonra @ olmalidi deye
+            emailValue.indexOf(".") > emailValue.indexOf("@") + 1 
         ) {
             console.log("email is correct");
         } else {
@@ -104,13 +104,26 @@ document.addEventListener("DOMContentLoaded", () => {
               basket: [],
             };
           
-
             users.push(newUser);
             localStorage.setItem("users", JSON.stringify(users));
-            toast("register successfully!!");
-            setTimeout(() => {
-                window.location.href = "login.html";
-            }, 2000);
+            
+            fetch("http://localhost:3000/users", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify(newUser)
+            })
+            .then(() => {
+                toast("register successfully!!");
+                setTimeout(() => {
+                    window.location.href = "login.html";
+                }, 2000);
+            })
+            .catch(() => {
+                toast("error: can not save user in db.json");
+            });
+            
         } else {
             toast("user already exists!");
         }
@@ -119,15 +132,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let toast = (text) => {
         Toastify({
-            text: `${text}`,
-            duration: 3000,
-            position: "left", 
-            stopOnFocus: true, 
-            style: {
-                background: "linear-gradient(to right, rgb(5, 125, 162),rgb(110, 185, 208))",
-            },
-            onClick: function() {} 
+          text: `${text}`,
+          duration: 2000,
+          position: "left",
+          stopOnFocus: true,
+          style: {
+            background:
+              "linear-gradient(to right,rgb(237, 140, 193),rgb(241, 174, 202))", 
+          },
+          onClick: function () {},
         }).showToast();
-    }
+      };
+      
 
 });

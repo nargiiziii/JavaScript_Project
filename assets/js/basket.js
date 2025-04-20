@@ -7,6 +7,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let basket = currentUser.basket;
 
+  let userBtn = document.querySelector(".username");
+  if (currentUser?.email) {
+    let usernameBeforeAt = currentUser.email.split("@")[0];
+    userBtn.textContent = usernameBeforeAt;
+  }
+
+  let register = document.querySelector(".register");
+  let logout = document.querySelector(".logout");
+
+  function updateUserStatus() {
+    if (currentUser) {
+      register.style.display = "none";
+      logout.style.display = "block";
+    } else {
+      register.style.display = "block";
+      logout.style.display = "none";
+    }
+  }
+  updateUserStatus()
+
   function createBasketItem() {
     const main = document.querySelector("main");
 
@@ -55,8 +75,10 @@ document.addEventListener("DOMContentLoaded", () => {
         toast("cart is empty");
       } else {
         toast("cart confirmed");
+        console.log("products:", basket); 
       }
     });
+    
 
     const paymentBtn = document.createElement("button");
     paymentBtn.className = "payment";
@@ -121,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
       price.className = "price";
       price.textContent = `US $${(product.count * product.price).toFixed(2)}`;
 
-      // Count area
+      //сount area
       const countArea = document.createElement("div");
       countArea.className = "count-area";
 
@@ -319,7 +341,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const subtotalText = `Your subtotal: US $${subtotalValue.toFixed(2)}`;
-    const totalText = `<strong>Total: US $${subtotalValue.toFixed(2)}</strong>`; // Если доставка бесплатная
+    const totalText = `<strong>Total: US $${subtotalValue.toFixed(2)}</strong>`;
 
     subtotal.textContent = subtotalText;
     total.innerHTML = totalText;
@@ -336,8 +358,9 @@ let toast = (text) => {
     stopOnFocus: true,
     style: {
       background:
-        "linear-gradient(to right, rgb(5, 125, 162),rgb(110, 185, 208))",
+        "linear-gradient(to right,rgb(237, 140, 193),rgb(241, 174, 202))", 
     },
     onClick: function () {},
   }).showToast();
 };
+

@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(() => {
           window.location.href = "index.html";
-        }, 4000);
+        }, 3000);
       } else {
         user.failedAttempts = (user.failedAttempts || 0) + 1;
 
@@ -93,7 +93,7 @@ let toast = (text) => {
     stopOnFocus: true,
     style: {
       background:
-        "linear-gradient(to right, rgb(5, 125, 162), rgb(110, 185, 208))",
+        "linear-gradient(to right,rgb(237, 140, 193),rgb(241, 174, 202))", 
     },
     onClick: function () {},
   }).showToast();

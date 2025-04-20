@@ -38,6 +38,23 @@ header .first-head-area .search-area input {
   outline: none;
   border: 1px solid gray;
   border-radius: 8px;
+  position: relative;
+}
+
+header .first-head-area .search-area {
+  position: relative;
+}
+
+header .first-head-area .search-area i {
+  color: gray;
+  top: 20px;
+  right: 10px;
+  position: absolute;
+}
+
+header .first-head-area .search-area .not-found-message {
+  display: none;
+  color: gray;
 }
 
 header .first-head-area .nav-right-area {
@@ -60,26 +77,27 @@ header .second-head-area nav {
   padding: 20px 50px;
 }
 
-header .first-head-area .nav-right-area .area .username{
+header .first-head-area .nav-right-area .area .username {
   width: 60px;
- padding: 5px;
- background-color: #d7c4d7;
- border: none;
+  padding: 5px;
+  background-color: #d7c4d7;
+  border: none;
 }
 
-header .first-head-area .nav-right-area .area .register, .logout{
+header .first-head-area .nav-right-area .area .register,
+.logout {
   padding: 10px;
- }
+}
 
- header .first-head-area .nav-right-area .area a{
- color: #000;
- display: flex;
- gap: 4px
- }
+header .first-head-area .nav-right-area .area a {
+  color: #000;
+  display: flex;
+  gap: 4px;
+}
 
- a {
+a {
   text-decoration: none;
- }
+}
 
 @media screen and (min-width: 625px) and (max-width: 868px) {
   header {
@@ -96,6 +114,10 @@ header .first-head-area .nav-right-area .area .register, .logout{
     padding: 10px;
     width: 120px;
     font-size: 10px;
+  }
+  header .first-head-area .search-area i {
+    top: 15px;
+    font-size: 16px;
   }
 
   header .first-head-area .nav-right-area {
@@ -137,6 +159,12 @@ header .first-head-area .nav-right-area .area .register, .logout{
 }
 
 /* MAIN */
+
+.back {
+  display: flex;
+  padding-left: 20px;
+  gap: 10px;
+}
 
 main {
   display: flex;

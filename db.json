@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
       "price": 109.95,
       "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
@@ -12,7 +12,7 @@
       }
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Mens Casual Premium Slim Fit T-Shirts",
       "price": 22.3,
       "description": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric",
@@ -23,7 +23,7 @@
       }
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Mens Cotton Jacket",
       "price": 55.99,
       "description": "Great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions",
@@ -34,7 +34,7 @@
       }
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Mens Casual Slim Fit",
       "price": 15.99,
       "description": "The color could be slightly different between on the screen and in practice",
@@ -45,7 +45,7 @@
       }
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
       "price": 695,
       "description": "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl",
@@ -56,7 +56,7 @@
       }
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "Solid Gold Petite Micropave",
       "price": 168,
       "description": "Satisfaction Guaranteed. Return or exchange any order within 30 days.",
@@ -66,7 +66,23 @@
         "count": 70
       }
     }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "some@example.com",
+      "password": "passwo123#F"
+    },
+    {
+      "id": "e384a808-c5ec-43c7-8503-2d543b580299",
+      "email": "nargiz@gmail.com",
+      "password": "Nargiz2#",
+      "isLogined": false,
+      "failedAttempts": 0,
+      "isLocked": false,
+      "wishlist": [],
+      "basket": []
+    }
   ]
 }
-
-

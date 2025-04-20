@@ -9,6 +9,28 @@ document.addEventListener("DOMContentLoaded", async () => {
     let loginedUser = users.find((user) => user.isLogined == true);
     let userIndex = users.findIndex((user) => user.id == loginedUser?.id);
   
+
+    let userBtn = document.querySelector(".username");
+    if (loginedUser?.email) {
+      let usernameBeforeAt = loginedUser.email.split("@")[0];
+      userBtn.textContent = usernameBeforeAt;
+    }
+
+    let register = document.querySelector(".register");
+    let logout = document.querySelector(".logout");
+  
+    function updateUserStatus() {
+      if (loginedUser) {
+        register.style.display = "none";
+        logout.style.display = "block";
+      } else {
+        register.style.display = "block";
+        logout.style.display = "none";
+      }
+    }
+    updateUserStatus()
+
+
     fetch(`http://localhost:3000/products/${id}`)
     .then((response) => {
       if (!response.ok) {
@@ -134,8 +156,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       position: "left",
       stopOnFocus: true,
       style: {
-        background: "linear-gradient(to right, rgb(5, 125, 162), rgb(110, 185, 208))",
+        background:
+          "linear-gradient(to right,rgb(237, 140, 193),rgb(241, 174, 202))", 
       },
+      onClick: function () {},
     }).showToast();
   };
   

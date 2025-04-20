@@ -8,7 +8,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   let userIndex = users.findIndex((user) => user.id == loginedUser?.id);
 
   let userBtn = document.querySelector(".username");
-  userBtn.textContent = loginedUser?.username;
+  if (loginedUser?.email) {
+    let usernameBeforeAt = loginedUser.email.split("@")[0];
+    userBtn.textContent = usernameBeforeAt;
+  }
+  
 
   let register = document.querySelector(".register");
 
@@ -143,7 +147,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       const heartIcon = document.createElement("i");
       heartIcon.className = "card-heart fa-heart fa-lg";
-
+      
       if (
         loginedUser &&
         loginedUser.wishlist.some((item) => item.id === product.id)
@@ -152,11 +156,17 @@ document.addEventListener("DOMContentLoaded", async () => {
       } else {
         heartIcon.classList.add("fa-regular");
       }
-
+      
       heartIcon.addEventListener("click", (e) => {
         e.stopPropagation();
+      
+        if (!loginedUser) {
+          toast("login first before adding the wishlist!!");
+          return; 
+        }
         toggleUserWishlist(product.id, heartIcon);
       });
+      
 
       const wishlistDiv = document.createElement("div");
       wishlistDiv.className = "wishlist-icon";
@@ -313,7 +323,7 @@ let toast = (text) => {
     stopOnFocus: true,
     style: {
       background:
-        "linear-gradient(to right, rgb(5, 125, 162),rgb(110, 185, 208))",
+        "linear-gradient(to right,rgb(237, 140, 193),rgb(241, 174, 202))", 
     },
     onClick: function () {},
   }).showToast();

@@ -7,8 +7,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="/assets/css/basket.css">
-     <!-- toastify -->
-     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <!-- toastify -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -21,28 +21,31 @@
                 <div class="logo">Snobella</div>
 
                 <div class="search-area">
-                    <input type="search" name="" id="" placeholder="Search all product">
+                    <input type="search" name="" id="searchInput" placeholder="Search all product">
+                    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
                 </div>
 
                 <div class="nav-right-area">
                     <div class="area">
-                        <button class="username">Username</button>
+                        <button class="username"></button>
 
-                        <a class="dropdown-item register" href="register.html"><i class="fa-solid fa-user fa-lg"></i>  Sign Up</a>
+                        <a class="dropdown-item register" href="register.html"><i class="fa-solid fa-user fa-lg"></i>
+                            Sign Up</a>
 
                         <a class="dropdown-item logout" href="#">Logout</a>
 
+
                     </div>
                     <div class="area">
-                        <a href="./wishlist.html">
-                            <div class="icon wishlistIcon"><i class="fa-solid fa-heart fa-lg"></i></div>
-                            <p class="wishlist wishlistIcon">Wishlist</p>
+                        <a class="wishlistIcon" href="./wishlist.html">
+                            <div class="icon"><i class="fa-solid fa-heart fa-lg"></i></div>
+                            <p class="wishlist">Wishlist</p>
                         </a>
                     </div>
                     <div class="area">
-                        <a href="./basket.html">
-                            <div class="icon basketIcon"><i class="fa-solid fa-cart-shopping fa-lg"></i></div>
-                            <p class="basket basketIcon">Basket</p>
+                        <a href="basket.html" class="basketIcon">
+                            <i class="fa-solid fa-cart-shopping fa-l"></i>
+                            <sup>0</sup>
                         </a>
                     </div>
                 </div>
@@ -65,6 +68,12 @@
 
         </div>
     </header>
+
+    <div class="back">
+        <a class="link" href="index.html">home ></a>
+        <a class="link" href="basket.html"> basket</a>
+    </div>
+
 
     <h2>Shopping bag</h2>
     <main>
@@ -98,8 +107,6 @@
                         </div>
                     </div>
                 </div>
-
-
 
             </div>
 
@@ -200,8 +207,8 @@
 
 
 
-     <!-- toastify -->
-     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!-- toastify -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="/assets/js/basket.js"></script>
 </body>
 

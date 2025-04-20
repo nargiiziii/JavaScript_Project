@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     let Url = new URLSearchParams(location.search);
     let prodContainer = document.querySelector(".product-container");
     let id = Url.get("id");
+    
   
     let products = (await axios("http://localhost:3000/products")).data;
     let users = JSON.parse(localStorage.getItem("users")) || [];
@@ -9,7 +10,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     let userIndex = users.findIndex((user) => user.id == loginedUser?.id);
   
     fetch(`http://localhost:3000/products/${id}`)
-      .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Product not found!!");
+      }
+      return response.json();
+    })
       .then((data) => {
         let allImgs = document.querySelectorAll(".small-imgs img");
         let bigImg = document.querySelector(".big-img img");
@@ -19,6 +25,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           img.src = data.image;
           img.addEventListener("click", () => {
             bigImg.src = img.src;
+            console.log("Balaca sekil deyisdirildi!!");
           });
         });
   
@@ -82,18 +89,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         
         function toggleUserWishlist(productId, heartIcon) {
-            if (!loginedUser) {
-              toast("You should login first before adding to wishlist!");
-              setTimeout(() => {
-                window.location.href = "login.html";
-              }, 3000);
-              return;
-            }
+
           
             let isInWishlist = loginedUser.wishlist.some((item) => item.id === productId);
           
             if (isInWishlist) {
-              // Удаляем из wishlist
+
               let index = loginedUser.wishlist.findIndex((product) => product.id == productId);
               loginedUser.wishlist.splice(index, 1);
           
@@ -102,7 +103,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           
               toast("Product removed from wishlist");
             } else {
-              // Добавляем в wishlist
+
               let product = products.find((productItem) => productItem.id == productId);
               loginedUser.wishlist.push(product);
           
@@ -116,12 +117,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             localStorage.setItem("users", JSON.stringify(users));
           }
           
-          
-
 
       })
       .catch((error) => {
-        console.log("Product not found, error: " + error);
+        console.log("Product not found, error: " + error.message);
         let errorMsg = document.createElement("p");
         errorMsg.textContent = "Product not found";
         prodContainer.appendChild(errorMsg);

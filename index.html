@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <!-- toastify -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-     <!-- toastify -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -23,14 +21,19 @@
                 <div class="logo">Snobella</div>
 
                 <div class="search-area">
-                    <input type="search" name="" id="" placeholder="Search all product">
+                    <input type="search" name="" id="searchInput" placeholder="Search all product">
+                    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+                    <div class="results"></div>
+
+                    <p class="not-found-message">there is no results found.</p>
                 </div>
 
                 <div class="nav-right-area">
                     <div class="area">
-                        <button class="username">Username</button>
+                        <button class="username"></button>
 
-                        <a class="dropdown-item register" href="register.html"><i class="fa-solid fa-user fa-lg"></i>  Sign Up</a>
+                        <a class="dropdown-item register" href="register.html"><i class="fa-solid fa-user fa-lg"></i>
+                            Sign Up</a>
 
                         <a class="dropdown-item logout" href="#">Logout</a>
 
@@ -132,24 +135,8 @@
 
             <div class="cards">
 
-                <!-- <div class="card">
-                    <div class="left-pos-text">New</div>
-                    <div class="wishlist-icon"><i class="fa-solid fa-heart fa-lg"></i></div>
-                    <div class="card-image">
-                        <img src="./assets/images/index-product-img1.png" alt="Product Image">
-                    </div>
-                    <div class="card-content">
-                        <p class="product-rate"><i class="fa-solid fa-star fa-sm"></i></p>
-                        <p class="card-title">Shoulder Bag Leather Bag Leather
-                            undertakes laborious physical physical </p>
-                    </div>
-                    <div class="card-footer">
-                        <span class="card-price">$130.00</span>
-                        <div class="card-price-from">From $340.00</div>
-                    </div>
-                    <button class="btn">Add to cart</button>
-                </div>
 
+                <!-- 
                 <div class="card">
                     <div class="left-pos-text">New</div>
                     <div class="wishlist-icon"><i class="fa-solid fa-heart fa-lg"></i></div>
@@ -166,100 +153,7 @@
                         <div class="card-price-from">From $340.00</div>
                     </div>
                     <button class="btn">Add to cart</button>
-                </div>
-
-                <div class="card">
-                    <div class="left-pos-text">New</div>
-                    <div class="wishlist-icon"><i class="fa-solid fa-heart fa-lg"></i></div>
-                    <div class="card-image">
-                        <img src="./assets/images/index-product-img1.png" alt="Product Image">
-                    </div>
-                    <div class="card-content">
-                        <p class="product-rate"><i class="fa-solid fa-star fa-sm"></i></p>
-                        <p class="card-title">Shoulder Bag Leather Bag Leather
-                            undertakes laborious physical physical </p>
-                    </div>
-                    <div class="card-footer">
-                        <span class="card-price">$130.00</span>
-                        <div class="card-price-from">From $340.00</div>
-                    </div>
-                    <button class="btn">Add to cart</button>
-                </div>
-
-                <div class="card">
-                    <div class="left-pos-text">New</div>
-                    <div class="wishlist-icon"><i class="fa-solid fa-heart fa-lg"></i></div>
-                    <div class="card-image">
-                        <img src="./assets/images/index-product-img1.png" alt="Product Image">
-                    </div>
-                    <div class="card-content">
-                        <p class="product-rate"><i class="fa-solid fa-star fa-sm"></i></p>
-                        <p class="card-title">Shoulder Bag Leather Bag Leather
-                            undertakes laborious physical physical </p>
-                    </div>
-                    <div class="card-footer">
-                        <span class="card-price">$130.00</span>
-                        <div class="card-price-from">From $340.00</div>
-                    </div>
-                    <button class="btn">Add to cart</button>
-                </div>
-
-
-                <div class="card">
-                    <div class="left-pos-text">New</div>
-                    <div class="wishlist-icon"><i class="fa-solid fa-heart fa-lg"></i></div>
-                    <div class="card-image">
-                        <img src="./assets/images/index-product-img1.png" alt="Product Image">
-                    </div>
-                    <div class="card-content">
-                        <p class="product-rate"><i class="fa-solid fa-star fa-sm"></i></p>
-                        <p class="card-title">Shoulder Bag Leather Bag Leather
-                            undertakes laborious physical physical </p>
-                    </div>
-                    <div class="card-footer">
-                        <span class="card-price">$130.00</span>
-                        <div class="card-price-from">From $340.00</div>
-                    </div>
-                    <button class="btn">Add to cart</button>
-                </div>
-
-
-                <div class="card">
-                    <div class="left-pos-text">New</div>
-                    <div class="wishlist-icon"><i class="fa-solid fa-heart fa-lg"></i></div>
-                    <div class="card-image">
-                        <img src="./assets/images/index-product-img1.png" alt="Product Image">
-                    </div>
-                    <div class="card-content">
-                        <p class="product-rate"><i class="fa-solid fa-star fa-sm"></i></p>
-                        <p class="card-title">Shoulder Bag Leather Bag Leather
-                            undertakes laborious physical physical </p>
-                    </div>
-                    <div class="card-footer">
-                        <span class="card-price">$130.00</span>
-                        <div class="card-price-from">From $340.00</div>
-                    </div>
-                    <button class="btn">Add to cart</button>
-                </div>
-
-
-                <div class="card">
-                    <div class="left-pos-text">New</div>
-                    <div class="wishlist-icon"><i class="fa-solid fa-heart fa-lg"></i></div>
-                    <div class="card-image">
-                        <img src="./assets/images/index-product-img1.png" alt="Product Image">
-                    </div>
-                    <div class="card-content">
-                        <p class="product-rate"><i class="fa-solid fa-star fa-sm"></i></p>
-                        <p class="card-title">Shoulder Bag Leather Bag Leather
-                            undertakes laborious physical physical </p>
-                    </div>
-                    <div class="card-footer">
-                        <span class="card-price">$130.00</span>
-                        <div class="card-price-from">From $340.00</div>
-                    </div>
-                    <button class="btn">Add to cart</button>
-                </div> -->
+                </div>  -->
 
 
 

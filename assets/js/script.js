@@ -81,11 +81,50 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  function createUserCard() {
+  // search etmek ucun:
+  let searchInput = document.querySelector("#searchInput");
+  let resultArea = document.querySelector(".results"); //bunun icine cardlari yigacam serte uygun
+  let notFoundMessage = document.querySelector(".not-found-message"); 
+  
+  searchInput.addEventListener("input", (e) => {
+    let text = e.target.value.toLowerCase().trim();
+  
+    let filtered = products.filter((product) =>
+      product.title.toLowerCase().includes(text)
+    );
+  
+    if (filtered.length === 0) {
+      resultArea.innerHTML = ""; 
+      notFoundMessage.style.display = "block"; 
+    } else {
+      notFoundMessage.style.display = "none"; 
+      createUserCard(filtered); 
+    }
+  });
+  
+
+  // sort etmek ucun
+  function sortProducts(sortOption) {
+    let sortedProducts = [...products];
+
+    if (sortOption === "price-low") {
+      sortedProducts.sort((a, b) => a.price - b.price);
+    } else if (sortOption === "price-high") {
+      sortedProducts.sort((a, b) => b.price - a.price);
+    } else if (sortOption === "a-z") {
+      sortedProducts.sort((a, b) => a.title.localeCompare(b.title));
+    } else if (sortOption === "z-a") {
+      sortedProducts.sort((a, b) => b.title.localeCompare(a.title));
+    }
+
+    createUserCard(sortedProducts);
+  }
+
+  function createUserCard(products) {
     const cards = document.querySelector(".cards");
 
-    if (!cards) return; // Если элемента .cards нет — просто выходим
-  
+    if (!cards) return;
+
     cards.innerHTML = "";
 
     products.forEach((product) => {
@@ -95,7 +134,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       card.addEventListener("click", () => {
         window.location.href = `product_detail.html?id=${product.id}`;
-      });      
+      });
 
       const newBadge = document.createElement("div");
       newBadge.className = "left-pos-text";
@@ -151,7 +190,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       const priceFrom = document.createElement("div");
       priceFrom.className = "card-price-from";
-      priceFrom.textContent = `From $${(product.price * 2.6).toFixed(2)}`; // просто пример
+      priceFrom.textContent = `From $${(product.price * 2.6).toFixed(2)}`;
 
       cardFooter.append(cardPrice, priceFrom);
 
@@ -198,6 +237,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       heartIcon.classList.remove("fa-solid");
       heartIcon.classList.add("fa-regular");
+      heartIcon.style.color = "black";
 
       toast("product removed from wishlist");
     } else {
@@ -210,6 +250,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       heartIcon.classList.add("fa-solid");
       heartIcon.classList.remove("fa-regular");
+      heartIcon.style.color = "red";
 
       toast("product added to wishlist");
     }
@@ -238,18 +279,30 @@ document.addEventListener("DOMContentLoaded", async () => {
     basketCount();
   }
 
-    function basketCount(){
-      let result = loginedUser.basket.reduce(
-        (acc, product) => acc + product.count,
-      0);
+  function basketCount() {
+    if (!loginedUser) return;
 
-      let countItem = document.querySelector(".basketIcon sup");
-      countItem.textContent = result
-    }
-    basketCount();
+    let result = loginedUser.basket.reduce(
+      (acc, product) => acc + product.count,
+      0
+    );
 
-  createUserCard();
+    let countItem = document.querySelector(".basketIcon sup");
+    if (countItem) countItem.textContent = result;
+  }
+
+  basketCount();
+
+  const sortSelect = document.getElementById("sort-options");
+  sortSelect.addEventListener("change", (e) => {
+    sortProducts(e.target.value);
+  });
+
+  createUserCard(products);
   updateUserStatus();
+
+  // default sort ucun asagi qiymetden yuxari qiymete olsun deye qeyd edirem
+  sortProducts("price-low");
 });
 
 let toast = (text) => {
